@@ -26,6 +26,9 @@ if plan:
     id = input("Введите идентификатор абонента: ")
 
 in_min_am, out_min_am, sms_am = reader(id)
-print("Сумма по счету равна", counter(in_min_am, out_min_am, sms_am, in_min, out_min, sms, in_min_bonus, out_min_bonus, sms_bonus), "руб.")
+cost_tel, cost_sms = counter(in_min_am, out_min_am, sms_am, in_min, out_min, sms, in_min_bonus, out_min_bonus, sms_bonus)
+print("Стоимость звонков:", cost_tel, "руб.")
+print("Стоимость СМС:", cost_sms, "руб.")
+print("Сумма по счету равна", cost_sms + cost_tel, "руб.")
 
 #os.system('pause')
