@@ -11,7 +11,7 @@ in_min_bonus = 0
 out_min_bonus = 20
 sms_bonus = 0
 
-id = "915783624"
+customer_id = "915783624"
 
 plan = int(input("Введите 0, чтобы использовать тарифный план по умолчанию, или 1, чтобы ввести новый тариф: "))
 
@@ -22,9 +22,9 @@ if plan:
     out_min_bonus = int(input("Количество исходящих минут бесплатно, мин: "))
     sms = float(input("Стоимость смс, руб/шт: "))    
     sms_bonus = int(input("Количество смс бесплатно, шт: "))
-    id = input("Введите идентификатор абонента: ")
+    customer_id = input("Введите идентификатор абонента: ")
 
-in_min_am, out_min_am, sms_am = reader(id)
+in_min_am, out_min_am, sms_am = reader(customer_id)
 cost_tel, cost_sms = counter(in_min_am, out_min_am, sms_am, in_min, out_min, sms, in_min_bonus, out_min_bonus, sms_bonus)
 print("Стоимость звонков:", cost_tel, "руб.")
 print("Стоимость СМС:", cost_sms, "руб.")

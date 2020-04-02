@@ -2,7 +2,7 @@
 """
 import csv
 
-def reader(id):
+def reader(customer_id):
     """Читает и разбирает строки из data.csv с id абонента.
 
        Возвращает количество использованных входящих и исходящих минут и количество смс.
@@ -15,11 +15,11 @@ def reader(id):
     with open("data.csv") as dt:
         reader = csv.reader(dt)
         for row in reader:
-            if id in row:
-                if row[1] == id:
+            if customer_id in row:
+                if row[1] == customer_id:
                     out_min_am += float(row[3])
                     sms_am += int(row[4])
-                elif row[2] == id:
+                elif row[2] == customer_id:
                     in_min_am += float(row[3])
     return in_min_am, out_min_am, sms_am
 
