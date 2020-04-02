@@ -12,20 +12,6 @@ def reader(id):
     out_min_am = 0.0
     sms_am = 0
 
-    #rows = []
-    """ with open("Prog/data.csv") as dt: #не оптимальный по памяти вариант
-        reader = csv.reader(dt)
-        for row in reader:
-            if id in row:
-                rows.append(row)
-    for i in range(len(rows)):
-        if rows[i][1] == id:
-            out_min_am += float(rows[i][3])
-            sms_am += int(rows[i][4])
-        elif rows[i][2] == id:
-            in_min_am += float(rows[i][3])
-    return in_min_am, out_min_am, sms_am """
-
     with open("data.csv") as dt:
         reader = csv.reader(dt)
         for row in reader:
