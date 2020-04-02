@@ -3,7 +3,6 @@
    Значения по умолчанию - из варианта 3.
 """
 from data_processing import reader, counter
-#import os
 
 in_min = 0.0
 out_min = 2.0
@@ -31,4 +30,3 @@ print("Стоимость звонков:", cost_tel, "руб.")
 print("Стоимость СМС:", cost_sms, "руб.")
 print("Сумма по счету равна", cost_sms + cost_tel, "руб.")
 
-#os.system('pause')
