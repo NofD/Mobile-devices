@@ -62,14 +62,14 @@ def mode_2():
             if dp.ip_check(ip_add):
                 print("\nНеверный IP-адрес")
                 mode_2()
-            else: # правильный ip и файл
+            else:
                 sel = dp.ip_selection(mode, ip_add)
                 if not sel:
                     print("\nФайл ip_address.txt создан")
                 elif sel == 1:
                     print("\nОшибка. Попробуйте еще раз")
                     mode_2()
-    else: # по умолчанию
+    else:
         if dp.check_file("result.txt"):
             print("\nНе удалось открыть файл")
             mode_2()
@@ -78,7 +78,7 @@ def mode_2():
             if dp.ip_check(ip_add):
                 print("\nНеверный IP-адрес")
                 mode_2()
-            else: # правильный ip и файл
+            else:
                 sel_1 = dp.ip_selection("result.txt", ip_add)
                 if not sel_1:
                     print("\nФайл ip_address.txt создан")
