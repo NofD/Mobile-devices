@@ -25,7 +25,6 @@ def translation(file_name="nfcapd.202002251200"):
                         if row[0]== "D" or row[0]== "2":
                             res.write(row)
             os.remove("subresult.txt")
-            print("\nПреобразован")
             return call_res
         else:
             print("\nФайл пуст")
@@ -76,7 +75,7 @@ def check_file(fl_name):
     else:
         return 0
 
-def diagram(ip_text): #проверка файла
+def diagram(ip_text): 
     """Принимает выборку по ip, выводит график 
        трафик(время).
     """
@@ -115,23 +114,28 @@ def diagram(ip_text): #проверка файла
     fig.autofmt_xdate()
     plt.show()
 
-def traf_collection(txt_cont): #проверка файла
+def traf_collection(txt_cont):
     """Считает весь трафик абонента за отчетный период.
     """
-    traf = 0
+    byte_traf = 0
+    mega_traf = 0
     with open(txt_cont, "r") as container:
         for row in container:
             L = row.split()
             if len(L) < 20:
-                traf += int(L[11])
+                if L[12] == "M":
+                    mega_traf += float(L[11])
+                else:
+                    byte_traf += float(L[11])
+    traf = round((byte_traf + mega_traf*1024*1024), 2) #в байтах
     return traf
          
-def tariff_ip(traf, price, bonus):
+def tariff_ip(traf, price, bonus): #байты, руб/Мб, Мб
     """Тарификация абонента по ip.
        Считает в Мб.
     """
-    cost_traf = (traf - bonus) * price
-    round_cost = round(cost_traf)
+    cost_traf = (traf/(1024*1024) - bonus) * price
+    round_cost = round(cost_traf, 2)
     return round_cost
 
 def ip_check(ip_addr):
