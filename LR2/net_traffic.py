@@ -3,6 +3,7 @@
    Значения по умолчанию - из варианта 3.
 """
 import data_processing as dp
+import os
 
 def mode_0():
     """Задание по варианту 3.
@@ -23,6 +24,8 @@ def mode_0():
         cost = dp.tariff_ip(traf, price, bonus) #байты, руб/Мб, Мб
         print("\nИтоговая стоимость: " + str(cost) + " руб.")
         dp.diagram(file_nm)
+        os.remove("result.txt")
+        os.remove("ip_address.txt")
 
 def mode_1():
     """Перевести данные в читабельный вид.
