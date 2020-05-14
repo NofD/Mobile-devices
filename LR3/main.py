@@ -42,7 +42,7 @@ def mode_0():
         dp.ip_selection("result.txt", ip)
         traf = dp.traf_collection(file_nm)
         cost = dp.tariff_ip(traf, price, bonus) #байты, руб/Мб, Мб
-        uslugi.append({'name': 'Интернет', 'count': traf, 'ed': 'байт', 'price': price, "summ": cost})
+        uslugi.append({'name': 'Интернет', 'count': (round(traf/(1024*1024), 2)), 'ed': 'Мбайт', 'price': price, "summ": cost})
         # dp.diagram(file_nm)
         os.remove("result.txt")
         os.remove("ip_address.txt")
